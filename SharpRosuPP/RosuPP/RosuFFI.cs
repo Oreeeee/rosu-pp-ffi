@@ -323,7 +323,10 @@ namespace RosuPP
         public static extern void difficulty_lazer(IntPtr context, bool lazer);
 
         [DllImport(NativeLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "difficulty_calculate")]
-        public static extern DifficultyAttributes difficulty_calculate(IntPtr context, IntPtr beatmap);
+        public static extern IntPtr difficulty_calculate(IntPtr context, IntPtr beatmap);
+        
+        [DllImport(NativeLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "difficulty_free_attrs")]
+        public static extern void difficulty_free_attrs(IntPtr attrs);
 
         [DllImport(NativeLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "difficulty_get_clock_rate")]
         public static extern double difficulty_get_clock_rate(IntPtr context);
@@ -1949,7 +1952,7 @@ namespace RosuPP
             RosuLibrary.difficulty_lazer(_context, lazer);
         }
 
-        public DifficultyAttributes Calculate(IntPtr beatmap)
+        public IntPtr Calculate(IntPtr beatmap)
         {
             return RosuLibrary.difficulty_calculate(_context, beatmap);
         }

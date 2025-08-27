@@ -210,7 +210,7 @@ public partial class HitObjects
 
 public partial class Difficulty
 {
-    public DifficultyAttributes Calculate(Beatmap beatmap)
+    public IntPtr Calculate(Beatmap beatmap)
     {
         return Calculate(beatmap.Context);
     }
