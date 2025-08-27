@@ -5,15 +5,15 @@ using RosuPP;
 
 namespace RosuPP;
 
-public static class Extensions {
-    public static double Acc(ref this ScoreState state, ref DifficultyAttributes attr, OsuScoreOrigin origin) {
-        return RosuLibrary.calculate_accuacy(ref state, ref attr, origin);
-    }
-
-    public static double Acc(ref this ScoreState state, ref DifficultyAttributes attr) {
-        return RosuLibrary.calculate_accuacy(ref state, ref attr, OsuScoreOrigin.WithSliderAcc);
-    }
-}
+// public static class Extensions {
+//     public static double Acc(ref this ScoreState state, ref DifficultyAttributes attr, OsuScoreOrigin origin) {
+//         return RosuLibrary.calculate_accuacy(ref state, ref attr, origin);
+//     }
+//
+//     public static double Acc(ref this ScoreState state, ref DifficultyAttributes attr) {
+//         return RosuLibrary.calculate_accuacy(ref state, ref attr, OsuScoreOrigin.WithSliderAcc);
+//     }
+// }
 
 public static class Utils
 {

@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net20</TargetFramework>
     <RootNamespace>RosuPP</RootNamespace>
     <TieredPGO>true</TieredPGO>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Optimize>true</Optimize>
+    <LangVersion>13</LangVersion>
+    <ImplicitUsings>disable</ImplicitUsings>
   </PropertyGroup>
-
-  <Import Project="./Rosu.targets" />
 </Project>
