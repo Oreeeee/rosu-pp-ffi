@@ -99,8 +99,16 @@ impl Difficulty {
     }
 
     #[ffi_service_method(on_panic = "undefined_behavior")]
-    pub fn calculate(&self, beatmap: &Beatmap) -> attributes::DifficultyAttributes {
-        self.construct().calculate(&beatmap.inner).into()
+    pub fn calculate(&self, beatmap: &Beatmap) -> *mut attributes::DifficultyAttributes {
+        let attrs = self.construct().calculate(&beatmap.inner).into();
+        Box::into_raw(Box::new(attrs))
+    }
+
+    #[ffi_service_method(on_panic = "undefined_behavior")]
+    pub fn free_attrs(ptr: *mut attributes::DifficultyAttributes) {
+        if !ptr.is_null() {
+            unsafe { Box::from_raw(ptr); }
+        }
     }
 
     #[ffi_service_method(on_panic = "undefined_behavior")]
