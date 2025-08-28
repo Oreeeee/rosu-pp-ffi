@@ -4,7 +4,7 @@ r9x_toolchain := 'rust9x'
 r9x_target := 'i686-rust9x-windows-msvc'
 r9x_editbin := 'C:\vc2010-tools\editbin.exe'
 
-# These settings shoud work for Windows 95+ and NT 3.51+.
+# These settings shoud work for Windows XP
 subsystem := 'CONSOLE,5.0'
 os_version := '3.1'
 
