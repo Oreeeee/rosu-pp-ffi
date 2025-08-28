@@ -1,0 +1,13 @@
+[build]
+
+[target.i686-rust9x-windows-msvc]
+rustflags = [
+  # statically linked runtime
+  '-Ctarget-feature=+crt-static',
+  # dynamically linked runtime
+  # '-Ctarget-feature=-crt-static',
+
+  # Use Visual Studio 2013 libraries
+  # This is the oldest one that can compile rosu-pp without hacks due to missing C99 math stuff in older libs
+  '-Clink-args=/LIBPATH:C:\vs2013-lib',
+]

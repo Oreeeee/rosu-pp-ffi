@@ -22,6 +22,19 @@ mod hitresult_priority;
 mod gradual;
 use error::{FFIError, Error};
 
+/// This needs to be set for libucrt to be able to do "dynamic" dispatch to optimized float
+///
+/// __ISA_AVAILABLE_X86     equ 0
+/// __ISA_AVAILABLE_SSE2    equ 1
+/// __ISA_AVAILABLE_SSE42   equ 2
+/// __ISA_AVAILABLE_AVX     equ 3
+/// TODO: Change to x87 if it's needed, right now it's SSE2
+#[cfg(feature = "float")]
+#[unsafe(no_mangle)]
+#[used]
+#[allow(non_upper_case_globals)]
+pub static __isa_available: std::ffi::c_int = 1;
+
 #[ffi_function]
 #[no_mangle]
 pub extern "C" fn pattern_api_guard() -> APIVersion {
